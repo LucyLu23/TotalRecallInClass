@@ -88,15 +88,24 @@ class SavingsAccount extends BankAccounts{
         }
         }
     }
-    // checkingAccount is not finished yet.
-//class CheckingAccount extends BankAccounts{
-    //overdraftEnabled(){
+   
+class CheckingAccount extends BankAccounts{
+    overdraftEnabled(withdrawnumber, balance){
+        this.withdrawNumber = withdrawnumber;
+        this.balance = balance;
+        if (this.balance < this.withdrawNumber){
+            console.log("not enough money, but you need pay back soon")
+        }
 
-    //}
-//}
+    }
+}
  
 var savingAccountOne = new SavingsAccount("Joes", 366, 36965412358);
 console.log(savingAccountOne);
 savingAccountOne.withdraw1(690,366);
 savingAccountOne.withdraw1(102,366);
+var checkingAcctOne = new CheckingAccount("Luvivi", 1000, 1256669965512);
+checkingAcctOne.overdraftEnabled(230,120);
+
+
 

@@ -52,28 +52,51 @@ class BankAccounts {
     constructor(ownerName, balance, acctNum){
         this.ownerName = ownerName;
         this.balance = balance;
-        this.acctNum = acctNum
-
+        this.acctNum = acctNum;
     }
     deposit(depositNumber, balance){
-        this.balance=this.balance+depositNumber;
-        console.log("your balance is ", this.balance)
+        this.depositNumber = depositNumber;
+        this.balance = balance;
+        //let balanceAll = this.balance+this.depositNumber;
+        console.log("your balance is ", this.depositNumber+this.balance, " after depositing.")
     }
     withdraw(withdrawNumber, balance){
-        this.balance=this.balance - withdrawNumber;
-        console.log("your balance is ", this.balance)
+        this.withdrawNumber = withdrawNumber;
+        this.balance = balance;
+        //let balanceWithdraw=this.balance - this.withdrawNumber;
+        console.log("your balance is ", this.withdrawNumber+this.balance, " after withdrawing.")
     }
 }
-class CheckingAccount extends BankAccounts{
-    overdraftEnabled(){
 
-    }
-}
+var bankAcctOne = new BankAccounts('JOJO', 36, 6669992323)
+console.log(bankAcctOne);
+bankAcctOne.deposit(200,369);
+bankAcctOne.withdraw(2100,3600);
+  
+console.log('------------')
+
+
 class SavingsAccount extends BankAccounts{
-    withdraw(withdrawNumber,balance){
-        if(this.balance-withdrawNumber){
-            console.log("you don't have enough money")
+    withdraw1(withdrawNumber,balance){
+        this.withdrawNumber =withdrawNumber;
+        this.balance = balance;
+        if(this.balance < this.withdrawNumber){
+            console.log("you don't have enough money");
+        }
+        else if(this.balance >= this.withdrawNumber){
+            console.log("you have ", this.balance-this.withdrawNumber, " $ left");
+        }
         }
     }
-}
- let bankAcctOne = new CheckingAccount('JOJO', 36, 'female')
+    // checkingAccount is not finished yet.
+//class CheckingAccount extends BankAccounts{
+    //overdraftEnabled(){
+
+    //}
+//}
+ 
+var savingAccountOne = new SavingsAccount("Joes", 366, 36965412358);
+console.log(savingAccountOne);
+savingAccountOne.withdraw1(690,366);
+savingAccountOne.withdraw1(102,366);
+

@@ -503,22 +503,34 @@ in the array. In case of a tie, the method should return the word that appears f
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
 => "Peanutbutter" */
 console.log('--------------------')
+
 function printLongestWord (myArray1){
-    for (let i=0; i<myArray1.length; i++){
-        if (myArray1[i].length >= myArray1[i+1].length){
-            return myArray1[i];
-        }else{
-            return myArray1[i+1]
+   for (let i=0; i< myArray1.length; i++){
+        if (myArray1[i].length <= myArray1[i+1].length){
+            myArray1.shift();          
         }
-    }
+        else{
+            myArray1.splice(i+1,1);   
+        } 
+        
+    }return myArray1;
 }
+
+    //console.log(myArray1[0].length <= myArray1[1].length);
+   
+
 console.log(printLongestWord(['ad','256464','false','howareyouandyou?']));
 
 
-
-
-
-
-
-
-
+function printLongestWord111(myArray111){
+    for (let i=0; i< myArray111.length-1; i++){
+         if (myArray111[0].length <= myArray111[1].length){
+             myArray111.shift();          
+         }
+         else{
+             myArray111.splice(2,1);   
+         } 
+         
+     }return myArray111;
+ }
+ console.log(printLongestWord111(['ad','256464','false','howareyouandyou?']));

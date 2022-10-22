@@ -327,6 +327,7 @@ function printCoolthat (name1,name2){
 }
 printCoolthat('Ariel','Miguel');
 
+console.log('----------------------------------------------')
 /*### C. calculateCube
 Write a function calculateCubethat takes a single number and prints the volume of a cube made from that number.
 `console.log(calculateCube(5));`
@@ -348,6 +349,7 @@ function calculateCubethat2 (num222){
 }
 calculateCubethat2(7);
 
+console.log('----------------------------------------------')
 /*
 ## D. isVowel
 1. Write a function `isVoweltha`t takes a character (i.e. a string of length 1) and returns `true` if it is a vowel, `false` otherwise. 
@@ -426,6 +428,7 @@ console.log(isVowel2('y'));
 console.log(isVowel2('Z'));
 console.log(isVowel2('O'));
 
+console.log('----------------------------------------------')
 /*### E. getTwoLengths
 Write a function `getTwoLengthsthat` accepts two parameters (strings). The function should return an array of numbers where each number 
 is the length of the corresponding string.
@@ -437,6 +440,7 @@ function getMyArrLength (myStr11,myStr22){
 }
 console.log(getMyArrLength('learningcode','activateworkDenver'));
 
+console.log('----------------------------------------------')
 /* 
 ### F. getMultipleLengths
 Write a function `getMultipleLengthsthat` accepts a single parameter as an argument: an array of strings. 
@@ -453,6 +457,7 @@ function getMultipleLength (myStrArray){
 }
 console.log(getMultipleLength (['1','23','learningcode','activateworkDenver']));
 console.log(getMultipleLength (['126sd4sdfs8fds6f4ds','23','learningcode','activateworkDenver','oksdokfs','howare']));
+
 /*
 ### G. maxOfThree
 Define a function maxOfThreethat takes three numbers as arguments and returns the largest of them. If all numbers are the same, it doesn't matter which one is returned. 
@@ -496,32 +501,27 @@ function maxOfThree2(num5,num55,num555){
     }
 }
 console.log(maxOfThree2(2003,442,3460));
-
+console.log('----------------------------------------------')
 /*### H. printLongestWord
 Write a function printLongestWordthat accepts a single argument, an array of strings. The method should return the longest word 
 in the array. In case of a tie, the method should return the word that appears first in the array.
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
 => "Peanutbutter" */
 console.log('--------------------')
-
+//way one
 function printLongestWord (myArray1){
+    let myarraylongestword = "";
    for (let i=0; i< myArray1.length; i++){
-        if (myArray1[i].length <= myArray1[i+1].length){
-            myArray1.shift();          
-        }
-        else{
-            myArray1.splice(i+1,1);   
-        } 
-        
-    }return myArray1;
+       if (myArray1[i].length > myarraylongestword.length){
+        myarraylongestword=myArray1[i];
+       }
+           
+    }return myarraylongestword;
 }
-
-    //console.log(myArray1[0].length <= myArray1[1].length);
-   
-
+//console.log(myArray1[0].length <= myArray1[1].length);
 console.log(printLongestWord(['ad','256464','false','howareyouandyou?']));
 
-
+// Way two, this method does not do good work, but I want to keep it . I try to figure out later.
 function printLongestWord111(myArray111){
     for (let i=0; i< myArray111.length-1; i++){
          if (myArray111[0].length <= myArray111[1].length){
@@ -533,4 +533,145 @@ function printLongestWord111(myArray111){
          
      }return myArray111;
  }
- console.log(printLongestWord111(['ad','256464','false','howareyouandyou?']));
+ // way three
+ /*
+ try using recursion, not figure out yet
+function printLongestWord1111(myArray1111){
+    for (let i=0; i< myArray1111.length-1; i++){
+         if (myArray1111[0].length <= myArray1111[1].length){
+             myArray1111.shift(); 
+             return printLongestWord1111(myArray1111)         
+         }
+         else{
+             myArray1111.splice(2,1);   
+             return printLongestWord1111(myArray1111)  
+         }
+         
+     }//return myArray1111;
+ }
+ console.log(printLongestWord1111(['ad','256464','false','howareyouandyou?'])); */
+ // way four
+/* function printLongestWordthat(myArray12){
+    //for(let i=0; i<myArray12.length; i++)
+    return myArray12.sort()   
+}
+console.log(printLongestWordthat(['ad','256464','false','howareyouandyou?'])); */
+console.log('----------------------------------------------')
+/*### C. Adding keys and values
+You have decided to add your user's location to the data that you want to collect.
+- Without changing the original user object, add a new key locationto the object, and give it a value or some-or-other location (a string).
+*/
+const userData ={
+    customer1:{
+        name:"vivi",
+        age: 18,
+        email:'vivi@gmail.com',
+        gender:'female',
+        purchasedthings:['womanshoes','handbag','cookie','milk']
+    },
+    customer2:{
+        name:'AA',
+        age:23,
+        email:'AA@gmail.com',
+        gender:'male',
+        purchasedthings:['manshoes','manTshirts','bread','drink']
+
+    },
+    customer3:{
+        name:'BB',
+        age:36,
+        email:'BB@gmail.com',
+        gender:'female',
+        purchasedthings:['babyclothes','pillow','eggs','water','apple']
+    }
+}
+//console.log(userData[0]);
+console.log(userData);
+userData.customer3.email='BBBBBB@gmail.com';
+console.log(userData.customer3.email);
+userData.customer1.age++;
+console.log(userData.customer1.age);
+/* object's property/value cannot be accessed by index?
+for (let n=0; n<userData.length; n++){
+    let location1 = ['12th street','16th street','23rd street'];
+    userData.userData[n]['location']=location1[n];
+}
+console.log(userData); */
+userData.customer1['location']= '12th street';
+userData.customer2['location']= '16th street';
+userData.customer3['location']= '23rd street';
+
+userData.customer1.purchasedthings.push('peace of mind');
+console.log(userData.customer1);
+userData.customer2.purchasedthings.push('peace of mind');
+console.log(userData.customer2);
+
+userData.customer3.purchasedthings.push('Merino jodhpurs');
+console.log(userData.customer3);
+
+userData.friend= {
+    name:"Grace Hopper",
+    age:85
+}
+console.log(userData);//add object "friend" to the main object "userData"
+userData.friend.location='36th street';
+userData.friend.purchasedthings=['orange','iphone','TVset','laptop'];
+console.log(userData.friend.name);
+console.log(userData.friend.location);
+userData.friend.age=55;
+userData.friend.purchasedthings.push('The One Ring');
+console.log(userData.friend.purchasedthings[1]='A latte');
+
+console.log('-------------LOOPSREVIEW---------------');
+for (let i1=0; i1 < userData.customer1.purchasedthings.length; i1++){
+    console.log(userData.customer1.purchasedthings[i1] );
+}
+console.log('----------------------------');
+for (let i2=0; i2 < userData.customer2.purchasedthings.length; i2++){
+    let purchasedgoods= userData.customer2.purchasedthings[i2];
+    console.log(purchasedgoods);
+}
+console.log('----------------------------');
+//let customer3purchase = userData.customer3.purchasedthings;
+let i3=0;
+while (i3 < userData.customer3.purchasedthings.length){
+    console.log(userData.customer3.purchasedthings[i3]);
+    i3++;
+}
+console.log('-----------FunctionsCanOperateOnObject----------------')
+
+function updateUser(){
+    this.age++;
+    this.name.toUpperCase();
+    console.log(this.age);
+    console.log(this.name.toUpperCase());
+}
+console.log('---------')
+const user1111 ={
+    age:22,
+    name:'jake',
+   }
+updateUser.apply(user1111);
+//This function and its calling I spend much time on it, so I want to keep the below
+//many codes that I tried.
+/*console.log(user1111.age);//22
+updateUser(user1111);
+console.log(updateUser(user1111.age));//nan
+user1111.updateUser();
+ const name1="Jake";
+console.log(name1.toUpperCase());
+const  anotherGreeting = 'goodmorning!!';
+console.log(anotherGreeting.toUpperCase()); */
+/* function oldAndLoud (person){
+    this.age++;
+    this.name.toUpperCase();
+}
+const person11 ={
+    age:23,
+    name:'Backson'
+}
+let object11 = oldAndLoud(person11);
+console.log(object11);
+//console.log(object11.age);
+console.log(person11.name); */
+

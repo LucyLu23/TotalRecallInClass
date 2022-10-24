@@ -68,10 +68,12 @@ console.log(48 !== '48');
 // 4. Commit
 console.log('--------------review Conditional"if-else"-----------');
 var animal = "cow";
-if (animal = "cow"){
+if (animal == "cow"){
     console.log(' moooooo');
+    //alert('Not sure what animal is');
 }else{
     console.log("Hey!, You're not a cow.");
+    //alert("Moooooooooooooooo");
 }
 // Driver's Ed
 // Make a variable that holds a person's age; be semantic
@@ -82,6 +84,9 @@ if (kevinAge > 16){
 }else{
     console.log("Sorry, you're too young.")
 }
+
+const kevinAge1 =16;
+kevinAge1 > 16? "here are the keys for you": "Sorry, you are too young ";
 
 // Loops
 console.log('--------------review Loops------------------');
@@ -95,6 +100,17 @@ console.log('--------------review Loops------------------');
 for (let i=0; i<11; i++){
         console.log(i);
     }
+
+for (let i1=10; i1<401; i1++){
+    console.log(i1);
+}
+
+for (let i2=12; i2<=4000; i2++){
+    if(i2%3==0){
+    console.log(i2);
+}
+}
+
 // B. Get even
 //Print out the numbers that are within the range of 1 - 100
 //Adjust your code to add a message next to even numbers only that says: "<-- is an even number"
@@ -556,6 +572,9 @@ function printLongestWord1111(myArray1111){
     return myArray12.sort()   
 }
 console.log(printLongestWordthat(['ad','256464','false','howareyouandyou?'])); */
+
+
+
 console.log('----------------------------------------------')
 /*### C. Adding keys and values
 You have decided to add your user's location to the data that you want to collect.

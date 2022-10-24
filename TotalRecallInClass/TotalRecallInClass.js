@@ -591,15 +591,23 @@ userData.customer3.email='BBBBBB@gmail.com';
 console.log(userData.customer3.email);
 userData.customer1.age++;
 console.log(userData.customer1.age);
+console.log('--------------')
 /* object's property/value cannot be accessed by index?
 for (let n=0; n<userData.length; n++){
     let location1 = ['12th street','16th street','23rd street'];
     userData.userData[n]['location']=location1[n];
 }
 console.log(userData); */
-userData.customer1['location']= '12th street';
+/* for (var eachCustomer in userData){
+    for (let n=0; n<userData.length; n++){
+        let location1 = ['12th street','16th street','23rd street'];
+        eachCustomer['location']=location1[n];
+        
+    }console.log(userData.customer1); */
+console.log('--------------')
+/* userData.customer1['location']= '12th street';
 userData.customer2['location']= '16th street';
-userData.customer3['location']= '23rd street';
+userData.customer3['location']= '23rd street'; */
 
 userData.customer1.purchasedthings.push('peace of mind');
 console.log(userData.customer1);
@@ -675,3 +683,41 @@ console.log(object11);
 //console.log(object11.age);
 console.log(person11.name); */
 
+let cat1that ={
+    name: 'Yoyo',
+    breed: 'Persian' ,
+    age:6
+}
+console.log(cat1that.age);
+console.log(cat1that.breed);
+
+let cat2that ={
+    name: 'Jack',
+    breed: 'Maine Coon' ,
+    age:9
+}
+
+function combineCats1(mama, papa){
+    papa.name='papamama';
+    papa.age=1;
+    papa.breed ='hybrid';
+    return {...mama,...papa};
+   }
+console.log(combineCats1(cat1that,cat2that));
+
+console.log("-------------")
+function combineCats2 (papa1, mama1) {
+    var obj = Object.assign(papa1,mama1);
+    obj.name='papamama';
+    obj.age=1;
+    obj.breed ='hybrid';
+    console.log(obj);
+}
+combineCats2(cat1that,cat2that);
+
+for (var property in cat1that){
+    console.log('key: '+ property);
+    console.log('value: ' +cat1that[ property]);
+}
+
+console.log(combineCats1(combineCats1(cat1that,cat2that),combineCats1(cat1that,cat2that)));
